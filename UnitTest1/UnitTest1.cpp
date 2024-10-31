@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
+extern "C" {
+#include "../CSCN71020_Assignment3/main.h"
+}
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest1
@@ -14,5 +18,17 @@ namespace UnitTest1
 			char* result = determineWinner("Rock", "Scissors");
 			Assert::AreEqual("Player1", result); // Expected Player1 wins
 		}
+        TEST_METHOD(Test_ScissorsBeatsPaper)
+        {
+            char* result = determineWinner("Scissors", "Paper");
+            Assert::AreEqual("Player1", result); // Expected Player1 wins
+        }
+
+        TEST_METHOD(Test_PaperBeatsRock)
+        {
+            char* result = determineWinner("Paper", "Rock");
+            Assert::AreEqual("Player1", result); // Expected Player1 wins
+        }
+
 	};
 }
