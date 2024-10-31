@@ -1,28 +1,35 @@
-// main.c file 
+// main.c
+#include <stdio.h>
 #include <string.h>
 #include "main.h"
 
-char* determineWinner(const char* player1, const char* player2) {
-    if (strcmp(player1, "Rock") == 0 && strcmp(player2, "Scissors") == 0) {
-        return "Player1"; //If rock vs scissors, rock wins
+// Function implementation
+char* determineWinner(char player1[], char player2[]) {
+    // Check for valid inputs first
+    if ((strcmp(player1, "Rock") != 0 && strcmp(player1, "Paper") != 0 && strcmp(player1, "Scissors") != 0) ||
+        (strcmp(player2, "Rock") != 0 && strcmp(player2, "Paper") != 0 && strcmp(player2, "Scissors") != 0)) {
+        return "Invalid";  // Return "Invalid" if either input is not "Rock", "Paper", or "Scissors"
     }
-    else if (strcmp(player1, "Scissors") == 0 && strcmp(player2, "Paper") == 0) {
-        return "Player1"; //If scissors vs paper, scissors wins
-    }
-    else if (strcmp(player1, "Paper") == 0 && strcmp(player2, "Rock") == 0) {
-        return "Player1"; //if paper vs rock paper wins
-    }
-    else if (strcmp(player2, "Rock") == 0 && strcmp(player1, "Scissors") == 0) {
-        return "Player2"; //If rock vs scissors, rock wins
-    }
-    else if (strcmp(player2, "Scissors") == 0 && strcmp(player1, "Paper") == 0) {
-        return "Player2"; //If scissors vs paper, scissors wins
-    }
-    else if (strcmp(player2, "Paper") == 0 && strcmp(player1, "Rock") == 0) {
-        return "Player2";//if paper vs rock, paper wins
-    }
-    else if (strcmp(player1, player2) == 0) {
+
+    // Determine the outcome based on game rules
+    if (strcmp(player1, player2) == 0) {
         return "Draw";
     }
-    return "Invalid";
+    else if ((strcmp(player1, "Rock") == 0 && strcmp(player2, "Scissors") == 0) ||
+        (strcmp(player1, "Scissors") == 0 && strcmp(player2, "Paper") == 0) ||
+        (strcmp(player1, "Paper") == 0 && strcmp(player2, "Rock") == 0)) {
+        return "Player1";
+    }
+    else {
+        return "Player2";
+    }
 }
+
+// main function for standalone testing
+int main() {
+    char player1[] = "Rock";
+    char player2[] = "Scissors";
+    printf("Result: %s\n", determineWinner(player1, player2)); // Expected output: "Player1"
+    return 0;
+}
+

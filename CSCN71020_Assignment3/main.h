@@ -3,14 +3,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-char* determineWinner(const char* player1, const char* player2);
-
-#ifdef __cplusplus
-}
-#endif
+// Function declaration
+char* determineWinner(char player1[], char player2[]);
 
 #endif
