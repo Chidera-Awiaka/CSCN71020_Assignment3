@@ -9,8 +9,10 @@ namespace UnitTest1
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(Test_RockBeatsScissors)
 		{
+			char* result = determineWinner("Rock", "Scissors");
+			Assert::AreEqual("Player1", result); // Expected Player1 wins
 		}
 	};
 }
