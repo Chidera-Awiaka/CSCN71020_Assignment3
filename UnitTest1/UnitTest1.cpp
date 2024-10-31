@@ -36,6 +36,10 @@ namespace UnitTest1
             Assert::AreEqual("Draw", result); // Expected Draw
         }
 
-        
+        TEST_METHOD(Test_InvalidInput)
+        {
+            char* result = determineWinner("Lizard", "Rock");
+            Assert::AreEqual("Invalid", result); // Expected Invalid
+        }
 	};
 }
