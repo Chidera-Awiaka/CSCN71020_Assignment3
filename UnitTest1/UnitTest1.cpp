@@ -30,5 +30,12 @@ namespace UnitTest1
             Assert::AreEqual("Player1", result); // Expected Player1 wins
         }
 
+        TEST_METHOD(Test_Draw)
+        {
+            char* result = determineWinner("Rock", "Rock");
+            Assert::AreEqual("Draw", result); // Expected Draw
+        }
+
+        
 	};
 }
